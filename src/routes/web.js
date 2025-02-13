@@ -1,15 +1,16 @@
-
 import express from "express";
-import homecontroller from "../controllers/homeController";
-
+import homeController from '../controllers/homeController';
 let router = express.Router();
-const initWebRoute = (app) => {
-    router.get('/', homecontroller.getHomePage); // route call controller in MVC
 
+const initWebRoute = (app) => {
+    router.get('/', homeController.getHomepage);
+    router.get('/detail/user/:id', homeController.getDetailPage)
     router.get('/about', (req, res) => {
-        res.send("I'm Huy!")
+        res.send(`I'm Eric!`)
     })
 
     return app.use('/', router)
 }
+
+
 export default initWebRoute;
