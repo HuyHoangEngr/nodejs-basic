@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Node.JS Basic</title>
     <link rel="stylesheet" href="/css/style.css">
@@ -18,7 +19,7 @@
 
     <div>
         <div class="w3-container">
-            <h2>List user Table</h2>
+            <h2>List users Table</h2>
 
             <table class="w3-table-all w3-hoverable">
                 <thead>
@@ -30,6 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     <% for(let i=0; i < dataUser.length; i++) { %>
                         <tr>
                             <td>
@@ -42,18 +44,44 @@
                                 <%= dataUser[i].lastName %>
                             </td>
                             <td>
-                                <a href="/detail/user/<%=dataUser[i].id%>">Detail</a>
+                                <a href="/detail/user/<%= dataUser[i].id %>" target="_blank">Detail</a>
                                 <button type="button">Edit</button>
                                 <button type="button">Delete</button>
                             </td>
                         </tr>
                         <% } %>
                 </tbody>
+
+
             </table>
         </div>
+        <div class="create-user-container">
+            <form action="/create-new-user" method="POST">
+                <div><b>Create a new user:</b></div>
+                <div>
+                    <label>First Name:</label>
+                    <input type="text" name="firstName" />
+                </div>
+                <div>
+                    <label>Last Name:</label>
+                    <input type="text" name="lastName" />
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <input type="email" name="email" />
+                </div>
+                <div>
+                    <label>Address:</label>
+                    <input type="text" name="address" />
+                </div>
+                <div>
+                    <button type="submit" class="btn-submit">Submit</button>
+                </div>
 
+            </form>
+
+        </div>
     </div>
-
 
 </body>
 
